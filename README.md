@@ -1,2 +1,5 @@
 # numerical-recipes
-My numerical recipes
+- PCA
+- Normalization
+- Whitening
+- Gas chemical potential
