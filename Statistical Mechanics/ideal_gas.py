@@ -11,12 +11,12 @@ def eval_chem_pot_gas(mass, coordination, frequency, sym, temp):
     """
     Evaluate chemical potential of non-linear gas molecule.
 
-    :param mass: '(the number of atom in molecule) size' matrix for atom mass (kg)
-    :param coordination: '(the number of atom in molecule, 3) size' matrix for atom coordination (m)
-    :param frequency: normal frequency (Hz)
+    :param mass: '(the number of atom in molecule) size' matrix for atom mass (unit: kg)
+    :param coordination: '(the number of atom in molecule, 3) size' matrix for atom coordination (unit: m)
+    :param frequency: normal frequency (unit: Hz)
     :param sym: the symmetry number of molecule
-    :param temp: temperature (K) matrix where chemical potential is evaluated
-    :return: contributions from translation, vibration, zero-point-energy, and rotation
+    :param temp: temperature (unit: K) matrix where chemical potential is evaluated
+    :return: contributions (unit: eV) from translation, vibration, zero-point-energy, and rotation
     """
     # evaluate total mass of ideal gas
     m_total = 0
@@ -75,12 +75,12 @@ def eval_chem_pot_gas_linear(mass, coordination, frequency, sym, temp):
     """
     Evaluate chemical potential of linear gas molecule.
 
-    :param mass: '(the number of atom in molecule) size' matrix for atom mass (kg)
-    :param coordination: '(the number of atom in molecule, 3) size' matrix for atom coordination (m)
-    :param frequency: normal frequency (Hz)
+    :param mass: '(the number of atom in molecule) size' matrix for atom mass (unit: kg)
+    :param coordination: '(the number of atom in molecule, 3) size' matrix for atom coordination (unit: m)
+    :param frequency: normal frequency (unit: Hz)
     :param sym: the symmetry number of molecule
-    :param temp: temperature (K) matrix where chemical potential is evaluated
-    :return: contributions from translation, vibration, zero-point-energy, and rotation
+    :param temp: temperature (unit: K) matrix where chemical potential is evaluated
+    :return: contributions (unit: eV) from translation, vibration, zero-point-energy, and rotation
     """
     # evaluate total mass of ideal gas
     m_total = 0
