@@ -1,4 +1,4 @@
-function [trans, vib, zpe, rot] = Eval_chemp(mass,coordination,freq,sym,temp)
+function [trans, vib, zpe, rot] = Eval_chem_pot_gas(mass,coordination,freq,sym,temp)
 %mass(kg), coordination(m), freq(Hz), temp(K)
 h=6.626*10^(-34);
 haba=h/2/pi;
