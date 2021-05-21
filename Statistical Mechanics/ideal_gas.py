@@ -28,24 +28,24 @@ def eval_chem_pot_gas(mass, coordination, frequency, sym, temp):
     y_cm = 0
     z_cm = 0
     for ind_atom, mass_atom in enumerate(mass):
-        x_cm = x_cm + mass_atom * coordination(ind_atom, 0) / m_total
-        y_cm = y_cm + mass_atom * coordination(ind_atom, 1) / m_total
-        z_cm = z_cm + mass_atom * coordination(ind_atom, 2) / m_total
+        x_cm = x_cm + mass_atom * coordination[ind_atom, 0] / m_total
+        y_cm = y_cm + mass_atom * coordination[ind_atom, 1] / m_total
+        z_cm = z_cm + mass_atom * coordination[ind_atom, 2] / m_total
 
-    inertia = np.zeros(3, 3)
+    inertia = np.zeros([3, 3])
     for ind_atom, mass_atom in enumerate(mass):
-        inertia[0, 0] = inertia[0, 0] + mass_atom * ((coordination(ind_atom, 1) - y_cm) ** 2
-                                                     + (coordination(ind_atom, 2) - z_cm) ** 2)
-        inertia[1, 1] = inertia[1, 1] + mass_atom * ((coordination(ind_atom, 0) - x_cm) ** 2
-                                                     + (coordination(ind_atom, 2) - z_cm) ** 2)
-        inertia[2, 2] = inertia[2, 2] + mass_atom * ((coordination(ind_atom, 0) - x_cm) ** 2
-                                                     + (coordination(ind_atom, 1) - y_cm) ** 2)
+        inertia[0, 0] = inertia[0, 0] + mass_atom * ((coordination[ind_atom, 1] - y_cm) ** 2
+                                                     + (coordination[ind_atom, 2] - z_cm) ** 2)
+        inertia[1, 1] = inertia[1, 1] + mass_atom * ((coordination[ind_atom, 0] - x_cm) ** 2
+                                                     + (coordination[ind_atom, 2] - z_cm) ** 2)
+        inertia[2, 2] = inertia[2, 2] + mass_atom * ((coordination[ind_atom, 0] - x_cm) ** 2
+                                                     + (coordination[ind_atom, 1] - y_cm) ** 2)
         inertia[0, 1] = inertia[0, 1] \
-                        + mass_atom * (coordination(ind_atom, 0) - x_cm) * (coordination(ind_atom, 1) - y_cm)
+                        + mass_atom * (coordination[ind_atom, 0] - x_cm) * (coordination[ind_atom, 1] - y_cm)
         inertia[0, 2] = inertia[0, 2] \
-                        + mass_atom * (coordination(ind_atom, 0) - x_cm) * (coordination(ind_atom, 2) - z_cm)
+                        + mass_atom * (coordination[ind_atom, 0] - x_cm) * (coordination[ind_atom, 2] - z_cm)
         inertia[1, 2] = inertia[1, 2] \
-                        + mass_atom * (coordination(ind_atom, 1) - y_cm) * (coordination(ind_atom, 2) - z_cm)
+                        + mass_atom * (coordination[ind_atom, 1] - y_cm) * (coordination[ind_atom, 2] - z_cm)
 
     inertia[1, 0] = inertia[0, 1]
     inertia[2, 0] = inertia[0, 2]
@@ -92,24 +92,24 @@ def eval_chem_pot_gas_linear(mass, coordination, frequency, sym, temp):
     y_cm = 0
     z_cm = 0
     for ind_atom, mass_atom in enumerate(mass):
-        x_cm = x_cm + mass_atom * coordination(ind_atom, 0) / m_total
-        y_cm = y_cm + mass_atom * coordination(ind_atom, 1) / m_total
-        z_cm = z_cm + mass_atom * coordination(ind_atom, 2) / m_total
+        x_cm = x_cm + mass_atom * coordination[ind_atom, 0] / m_total
+        y_cm = y_cm + mass_atom * coordination[ind_atom, 1] / m_total
+        z_cm = z_cm + mass_atom * coordination[ind_atom, 2] / m_total
 
-    inertia = np.zeros(3, 3)
+    inertia = np.zeros([3, 3])
     for ind_atom, mass_atom in enumerate(mass):
-        inertia[0, 0] = inertia[0, 0] + mass_atom * ((coordination(ind_atom, 1) - y_cm) ** 2
-                                                     + (coordination(ind_atom, 2) - z_cm) ** 2)
-        inertia[1, 1] = inertia[1, 1] + mass_atom * ((coordination(ind_atom, 0) - x_cm) ** 2
-                                                     + (coordination(ind_atom, 2) - z_cm) ** 2)
-        inertia[2, 2] = inertia[2, 2] + mass_atom * ((coordination(ind_atom, 0) - x_cm) ** 2
-                                                     + (coordination(ind_atom, 1) - y_cm) ** 2)
+        inertia[0, 0] = inertia[0, 0] + mass_atom * ((coordination[ind_atom, 1] - y_cm) ** 2
+                                                     + (coordination[ind_atom, 2] - z_cm) ** 2)
+        inertia[1, 1] = inertia[1, 1] + mass_atom * ((coordination[ind_atom, 0] - x_cm) ** 2
+                                                     + (coordination[ind_atom, 2] - z_cm) ** 2)
+        inertia[2, 2] = inertia[2, 2] + mass_atom * ((coordination[ind_atom, 0] - x_cm) ** 2
+                                                     + (coordination[ind_atom, 1] - y_cm) ** 2)
         inertia[0, 1] = inertia[0, 1] \
-                        + mass_atom * (coordination(ind_atom, 0) - x_cm) * (coordination(ind_atom, 1) - y_cm)
+                        + mass_atom * (coordination[ind_atom, 0] - x_cm) * (coordination[ind_atom, 1] - y_cm)
         inertia[0, 2] = inertia[0, 2] \
-                        + mass_atom * (coordination(ind_atom, 0) - x_cm) * (coordination(ind_atom, 2) - z_cm)
+                        + mass_atom * (coordination[ind_atom, 0] - x_cm) * (coordination[ind_atom, 2] - z_cm)
         inertia[1, 2] = inertia[1, 2] \
-                        + mass_atom * (coordination(ind_atom, 1) - y_cm) * (coordination(ind_atom, 2) - z_cm)
+                        + mass_atom * (coordination[ind_atom, 1] - y_cm) * (coordination[ind_atom, 2] - z_cm)
 
     inertia[1, 0] = inertia[0, 1]
     inertia[2, 0] = inertia[0, 2]
