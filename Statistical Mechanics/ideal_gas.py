@@ -127,6 +127,6 @@ def eval_chem_pot_gas_linear(mass, coordination, frequency, sym, temp):
         zpe = zpe + 1 / 2 * h * freq / 1.6 * 10 ** 19
 
     # evaluate chemical potential of rotational motion of ideal gas
-    rot = -kb / 1.6 * 10 ** 19 * temp * np.log(1 / sym * 2 * principal_inertia[2] * kb * temp / haba ** 2)
+    rot = -kb / 1.6 * 10 ** 19 * temp * np.log(1 / sym * 2 * principal_inertia. * kb * temp / haba ** 2)
 
     return trans, vib, zpe, rot
